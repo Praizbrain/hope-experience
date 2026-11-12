@@ -12,6 +12,33 @@ export default function Home() {
 
       <TaglineBanner />
 
+      {/* Venue */}
+      <section className="bg-pitch">
+        <div className="mx-auto grid max-w-6xl gap-6 px-4 py-14 sm:py-16 md:grid-cols-2">
+          <div>
+            <h2 className="font-display text-4xl font-extrabold uppercase sm:text-6xl">
+              Join us at the field
+            </h2>
+            <p className="mt-4 text-lg text-silver/85">
+              {EVENT.venue}. {EVENT.address}.
+            </p>
+            <p className="mt-2 text-lg text-gold">
+              {EVENT.dateLabel}, {EVENT.timeLabel}. Free entry.
+            </p>
+          </div>
+          <div className="flex items-center md:justify-end">
+            <a
+              href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+                EVENT.venue + " Benin City"
+              )}`}
+              className="w-full rounded-full bg-silver px-8 py-3 text-center text-base font-bold text-forest hover:bg-lime sm:w-auto sm:text-lg"
+            >
+              Get directions
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* About */}
       <section className="mx-auto grid max-w-6xl items-center gap-10 px-4 py-14 sm:py-20 md:grid-cols-2">
         <div>
@@ -44,32 +71,6 @@ export default function Home() {
         </div>
 
         <AboutImages images={ABOUT_IMAGES.map((f) => mediaUrl(`about/${f}`))} />
-      </section>
-      {/* Venue */}
-      <section className="bg-pitch">
-        <div className="mx-auto grid max-w-6xl gap-6 px-4 py-14 sm:py-16 md:grid-cols-2">
-          <div>
-            <h2 className="font-display text-4xl font-extrabold uppercase sm:text-6xl">
-              Join us at the field
-            </h2>
-            <p className="mt-4 text-lg text-silver/85">
-              {EVENT.venue}. {EVENT.address}.
-            </p>
-            <p className="mt-2 text-lg text-gold">
-              {EVENT.dateLabel}, {EVENT.timeLabel}. Free entry.
-            </p>
-          </div>
-          <div className="flex items-center md:justify-end">
-            <a
-              href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-                EVENT.venue + " Benin City"
-              )}`}
-              className="w-full rounded-full bg-silver px-8 py-3 text-center text-base font-bold text-forest hover:bg-lime sm:w-auto sm:text-lg"
-            >
-              Get directions
-            </a>
-          </div>
-        </div>
       </section>
 
       {/* Line up placeholder */}

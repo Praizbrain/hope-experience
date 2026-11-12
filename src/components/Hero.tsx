@@ -87,19 +87,19 @@ export default function Hero({ images }: { images: string[] }) {
                             </motion.div>
                         </AnimatePresence>
                     </div>
-
-                    <div className="mt-6 flex gap-2 sm:gap-3">
+                    <div className="mt-6 flex flex-wrap gap-2 sm:gap-3">
                         <Link
                             href="/partner"
-                            className="rounded-full bg-lime px-5 py-3 text-[15px] font-bold text-forest hover:bg-gold sm:px-8 sm:text-lg"
+                            className="inline-flex h-11 items-center whitespace-nowrap rounded-full bg-lime px-5 text-sm font-bold text-forest hover:bg-gold sm:h-14 sm:px-8 sm:text-lg"
                         >
                             Partner with us
                         </Link>
                         <Link
                             href="/plan"
-                            className="rounded-full border border-silver/50 px-5 py-3 text-[15px] font-bold hover:border-lime hover:text-lime sm:px-8 sm:text-lg"
+                            className="inline-flex h-11 items-center whitespace-nowrap rounded-full border border-silver/50 px-5 text-sm font-bold hover:border-lime hover:text-lime sm:h-14 sm:px-8 sm:text-lg"
                         >
-                            Plan your experience
+                            <span className="sm:hidden">Plan your visit</span>
+                            <span className="hidden sm:inline">Plan your experience</span>
                         </Link>
                     </div>
                 </div>

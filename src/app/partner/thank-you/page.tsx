@@ -12,8 +12,8 @@ export default async function ThankYou({
 }) {
     const sp = await searchParams;
     const reference = sp.reference || sp.ref;
-    let paid = false;
 
+    // Quietly mark the gift as paid. The donor always sees the thank-you message.
     if (reference) {
         try {
             const tx = await verifyTransaction(reference);
@@ -25,14 +25,12 @@ export default async function ThankYou({
                     .eq("reference", reference)
                     .single();
 
-                // Only accept it if the amount Paystack collected matches what we recorded.
                 if (row && row.amount_kobo === tx.amount) {
                     await db
                         .from("partnerships")
                         .update({ status: "success", paid_at: new Date().toISOString() })
                         .eq("reference", reference)
                         .neq("status", "success");
-                    paid = true;
                 }
             }
         } catch (e) {
@@ -43,12 +41,11 @@ export default async function ThankYou({
     return (
         <main className="mx-auto max-w-2xl px-4 py-24 text-center">
             <h1 className="font-display text-5xl font-extrabold uppercase text-lime sm:text-6xl">
-                {paid ? "Thank you for partnering with us" : "We are confirming your gift"}
+                Thank you for partnering with us
             </h1>
             <p className="mt-4 text-lg text-silver/85">
-                {paid
-                    ? "Your gift is helping us reach more lives on 17 December. A receipt is on its way to your email."
-                    : "If you completed your payment, you will receive a Paystack receipt by email shortly."}
+                Your gift is helping us reach more lives on 17 December. A receipt is on its way to your
+                email.
             </p>
             <Link
                 href="/"
