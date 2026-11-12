@@ -85,7 +85,7 @@ export default function Home() {
               key={i}
               className="flex aspect-[3/4] items-center justify-center rounded-2xl border border-lime/30 bg-pitch font-display text-3xl font-extrabold text-lime/60"
             >
-              TBA
+              ?
             </div>
           ))}
         </div>
