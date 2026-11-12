@@ -23,12 +23,9 @@ const faqs: { q: string; a: ReactNode }[] = [
         a: (
             <>
                 Yes. You can{" "}
-                <a
-                    href="https://hopeexperience10.vercel.app"
-                    className="text-lime underline underline-offset-4"
-                >
+                <Link href="/plan#volunteer" className="text-lime underline underline-offset-4">
                     join the workforce here
-                </a>
+                </Link>
                 . Children and teens aged 6 to 16 can also join the choir: call or WhatsApp Angela on
                 +234 705 1925 164.
             </>

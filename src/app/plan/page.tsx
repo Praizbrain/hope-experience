@@ -1,14 +1,8 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { EVENT } from "@/lib/event";
-import {
-    BUSES,
-    FLYERS,
-    CHOIR,
-    WORKFORCE_URL,
-    callHref,
-    whatsappHref,
-} from "@/lib/plan";
+import VolunteerForm from "@/components/VolunteerForm";
+import { BUSES, FLYERS, CHOIR, callHref, whatsappHref } from "@/lib/plan";
 
 export const metadata = { title: "Plan your experience | Hope Experience 10" };
 
@@ -91,8 +85,8 @@ export default function PlanPage() {
                         title="Volunteer"
                         body="Join the workforce and serve at Hope Experience 10."
                     >
-                        <a href={WORKFORCE_URL} className={btnSolid}>
-                            Join the workforce
+                        <a href="#volunteer" className={btnSolid}>
+                            Sign up to volunteer
                         </a>
                     </Card>
 
@@ -139,6 +133,22 @@ export default function PlanPage() {
                             WhatsApp
                         </a>
                     </Card>
+                </div>
+            </section>
+
+            {/* Volunteer form */}
+            <section id="volunteer" className="scroll-mt-20 mx-auto max-w-6xl px-4 pb-14 sm:pb-20">
+                <div className="grid gap-8 rounded-3xl border border-lime/30 bg-pitch p-6 sm:p-10 md:grid-cols-2">
+                    <div>
+                        <h2 className="font-display text-4xl font-extrabold uppercase sm:text-5xl">
+                            Join the <span className="text-lime">workforce</span>
+                        </h2>
+                        <p className="mt-4 text-lg text-silver/85">
+                            Hope Experience is built by people who give their time. Fill in the form, and we will
+                            add you to the workforce WhatsApp group where all updates and instructions are shared.
+                        </p>
+                    </div>
+                    <VolunteerForm />
                 </div>
             </section>
 

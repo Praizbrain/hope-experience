@@ -41,3 +41,18 @@ export const callHref = (phone: string) => `tel:+${intl(phone)}`;
 
 export const whatsappHref = (phone: string, text?: string) =>
     `https://wa.me/${intl(phone)}${text ? `?text=${encodeURIComponent(text)}` : ""}`;
+
+export const WORKFORCE_WHATSAPP =
+    "https://chat.whatsapp.com/I9CuoVC8TRr4JGn8npIZXx?s=cl&p=i&mlu=4&ilr=4";
+
+export const TEAMS = [
+    "Media and photography",
+    "Content creation",
+    "Ushering",
+    "Choir and music",
+    "Technical and sound",
+    "Logistics and transport",
+    "Protocol unit",
+    "Greeters & Hospitality",
+    "logistics",
+];
