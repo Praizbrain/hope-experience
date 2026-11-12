@@ -54,21 +54,19 @@ export default function AboutHero({ images }: { images: string[] }) {
                     className="absolute -left-6 -right-6 top-[16%] z-10 -rotate-3 overflow-hidden bg-lime py-2 text-forest shadow-xl"
                     aria-hidden
                 >
-                    <div className="flex gap-8 whitespace-nowrap font-display text-lg font-extrabold uppercase sm:text-2xl">
-                        {Array.from({ length: 8 }).map((_, k) => (
-                            <span key={k}>10 years • one name • Jesus •</span>
+                    <div className="marquee-left flex w-max" style={{ animationDuration: "22s" }}>
+                        {[0, 1].map((half) => (
+                            <div key={half} className="flex shrink-0">
+                                {Array.from({ length: 8 }).map((_, k) => (
+                                    <span
+                                        key={k}
+                                        className="shrink-0 whitespace-nowrap pr-8 font-display text-lg font-extrabold uppercase sm:text-2xl"
+                                    >
+                                        10 years • one name • Jesus •
+                                    </span>
+                                ))}
+                            </div>
                         ))}
-                    </div>
-                </div>
-
-                <div className="absolute inset-x-0 bottom-0 z-10 mx-auto flex max-w-7xl items-end justify-between px-4 pb-6 sm:pb-10">
-                    <h1 className="font-display font-extrabold uppercase leading-[0.8]">
-                        <span className="block text-xl text-lime sm:text-3xl">Hope Experience 10</span>
-                        <span className="text-outline block text-[clamp(5.5rem,26vw,20rem)]">About</span>
-                    </h1>
-                    <div className="pb-2 text-right font-display text-xl font-extrabold sm:pb-4 sm:text-3xl">
-                        <span className="text-lime">{String(i + 1).padStart(2, "0")}</span>
-                        <span className="text-silver/60"> / {String(Math.max(n, 1)).padStart(2, "0")}</span>
                     </div>
                 </div>
             </div>
