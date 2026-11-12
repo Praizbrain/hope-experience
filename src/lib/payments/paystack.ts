@@ -37,3 +37,15 @@ export function isValidSignature(rawBody: string, signature: string | null) {
     const hash = crypto.createHmac("sha512", secret()).update(rawBody).digest("hex");
     return hash === signature;
 }
+
+export async function verifyTransaction(reference: string) {
+    const res = await fetch(
+        `${BASE}/transaction/verify/${encodeURIComponent(reference)}`,
+        { headers: { Authorization: `Bearer ${secret()}` }, cache: "no-store" }
+    );
+    const json = await res.json();
+    if (!res.ok || !json.status) {
+        throw new Error(json.message || "Paystack verify failed");
+    }
+    return json.data as { status: string; amount: number; reference: string };
+}

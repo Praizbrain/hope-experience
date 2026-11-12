@@ -49,7 +49,7 @@ export default function PartnerForm({ initialAmount }: { initialAmount?: number 
                     ))}
                 </div>
                 <label className="mt-3 block text-sm text-silver/80">
-                    Or enter an amount (₦)
+                    enter an amount (₦, minimum 10,000)
                     <input
                         type="number"
                         min={MIN_AMOUNT}

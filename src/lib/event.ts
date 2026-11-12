@@ -16,8 +16,8 @@ export const EVENT = {
     },
 };
 
-export const PRESET_AMOUNTS = [5000, 10000, 50000, 100000];
-export const MIN_AMOUNT = 1000;
+export const PRESET_AMOUNTS = [10000, 25000, 50000, 100000];
+export const MIN_AMOUNT = 10000;
 
 export const HERO_IMAGES = [
     "hero-1.jpg",
