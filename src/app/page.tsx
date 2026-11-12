@@ -2,7 +2,9 @@
 import Link from "next/link";
 import Countdown from "@/components/Countdown";
 import HeroSlideshow from "@/components/HeroSlideshow";
-import { EVENT, PRESET_AMOUNTS, HERO_IMAGES, mediaUrl } from "@/lib/event";
+import TaglineBanner from "@/components/TaglineBanner";
+import Faq from "@/components/Faq";
+import { EVENT, HERO_IMAGES, mediaUrl } from "@/lib/event";
 
 export default function Home() {
   return (
@@ -34,35 +36,8 @@ export default function Home() {
           </div>
         </div>
       </section>
-      {/* Partnership band: the main call to action */}
-      <section className="bg-lime text-forest">
-        <div className="mx-auto grid max-w-6xl items-center gap-6 px-4 py-14 md:grid-cols-2">
-          <div>
-            <h2 className="font-display text-4xl sm:text-5xl">Help us reach one more life</h2>
-            <p className="mt-3 max-w-md text-lg">
-              Hope Experience is free for everyone. Your gift pays for the sound, the stage and
-              the outreach that make it possible.
-            </p>
-          </div>
-          <div className="flex flex-wrap gap-3 md:justify-end">
-            {PRESET_AMOUNTS.map((a) => (
-              <Link
-                key={a}
-                href={`/partner?amount=${a}`}
-                className="rounded-full bg-forest px-6 py-3 font-bold text-lime hover:bg-pitch"
-              >
-                ₦{a.toLocaleString()}
-              </Link>
-            ))}
-            <Link
-              href="/partner"
-              className="rounded-full border-2 border-forest px-6 py-3 font-bold"
-            >
-              Give another amount
-            </Link>
-          </div>
-        </div>
-      </section>
+
+      <TaglineBanner />
 
       {/* About */}
       <section className="mx-auto max-w-6xl px-4 py-16">
@@ -126,6 +101,7 @@ export default function Home() {
           ))}
         </div>
       </section>
+      <Faq />
     </main>
   );
 }

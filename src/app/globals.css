@@ -58,3 +58,9 @@ body {
   outline: 3px solid var(--color-lime);
   outline-offset: 3px;
 }
+
+.dots {
+  background-color: #050505;
+  background-image: radial-gradient(rgba(77, 255, 0, 0.28) 1.6px, transparent 1.8px);
+  background-size: 20px 20px;
+}
