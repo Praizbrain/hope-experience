@@ -22,13 +22,13 @@ export default function Countdown({ target }: { target: string }) {
     }, [t]);
 
     return (
-        <div className="flex gap-3 sm:gap-6" role="timer" aria-label="Time until the event">
+        <div className="flex gap-3 sm:gap-5" role="timer" aria-label="Time until the event">
             {(["Days", "Hours", "Minutes", "Seconds"] as const).map((k) => (
-                <div key={k} className="min-w-[4.2rem] text-center sm:min-w-[7rem]">
-                    <div className="font-display text-5xl leading-none text-lime tabular-nums sm:text-8xl">
+                <div key={k} className="min-w-[3.4rem] text-left sm:min-w-[5rem]">
+                    <div className="font-display text-4xl font-extrabold leading-none text-lime tabular-nums sm:text-6xl">
                         {v ? String(v[k]).padStart(2, "0") : "--"}
                     </div>
-                    <div className="mt-1 text-xs text-silver/70 sm:text-sm">{k}</div>
+                    <div className="mt-1 text-xs text-silver/80 sm:text-sm">{k}</div>
                 </div>
             ))}
         </div>

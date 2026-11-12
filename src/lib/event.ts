@@ -31,3 +31,5 @@ export const HERO_IMAGES = [
 
 export const mediaUrl = (path: string) =>
     `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/event-media/${path}`;
+
+export const ABOUT_IMAGES = ["about-1.jpg", "about-2.jpg", "about-3.jpg"];

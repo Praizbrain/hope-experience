@@ -1,69 +1,57 @@
-
 import Link from "next/link";
-import Countdown from "@/components/Countdown";
-import HeroSlideshow from "@/components/HeroSlideshow";
+import Hero from "@/components/Hero";
 import TaglineBanner from "@/components/TaglineBanner";
+import AboutImages from "@/components/AboutImages";
 import Faq from "@/components/Faq";
-import { EVENT, HERO_IMAGES, mediaUrl } from "@/lib/event";
+import { EVENT, HERO_IMAGES, ABOUT_IMAGES, mediaUrl } from "@/lib/event";
 
 export default function Home() {
   return (
     <main>
-      {/* Hero */}
-      <section className="spotlight relative overflow-hidden">
-        <HeroSlideshow images={HERO_IMAGES.map((f) => mediaUrl(`hero/${f}`))} />
-        <div className="relative z-10 mx-auto flex min-h-[85vh] max-w-6xl flex-col items-center justify-center gap-8 px-4 py-16 text-center">
-          <h1 className="sr-only">Hope Experience 10, The Invaxion</h1>
-          <p className="hero-text max-w-xl text-xl text-silver">
-            {EVENT.tagline}. A night of worship, prayer and transformation.
-          </p>
-          <div className="hero-text">
-            <Countdown target={EVENT.dateISO} />
-          </div>
-          <div className="flex flex-wrap justify-center gap-3">
-            <Link
-              href="/partner"
-              className="rounded-full bg-lime px-8 py-3 text-lg font-bold text-forest hover:bg-gold"
-            >
-              Partner with us
-            </Link>
-            <Link
-              href="/plan"
-              className="rounded-full border border-silver/40 px-8 py-3 text-lg hover:border-lime hover:text-lime"
-            >
-              Plan your experience
-            </Link>
-          </div>
-        </div>
-      </section>
+      <Hero images={HERO_IMAGES.map((f) => mediaUrl(`hero/${f}`))} />
 
       <TaglineBanner />
 
       {/* About */}
-      <section className="mx-auto max-w-6xl px-4 py-16">
-        <h2 className="font-display text-4xl text-silver sm:text-5xl">
-          A decade of hope and transformation
-        </h2>
-        <p className="mt-4 max-w-2xl text-lg text-silver/85">
-          An atmosphere of pure praise and worship that leaves you with an amazing encounter for
-          life. For ten years, Hope Experience has been the place where Jesus meets men.
-        </p>
-        <Link
-          href="/journey"
-          className="mt-8 inline-flex items-center gap-2 rounded-full border-2 border-lime px-8 py-3 text-lg font-bold text-lime transition hover:bg-lime hover:text-forest"
-        >
-          See our journey from 2016 to 2026
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-            <path d="M5 12h14M13 6l6 6-6 6" />
-          </svg>
-        </Link>
-      </section>
+      <section className="mx-auto grid max-w-6xl items-center gap-10 px-4 py-14 sm:py-20 md:grid-cols-2">
+        <div>
+          <h2 className="font-display text-4xl font-extrabold uppercase sm:text-5xl">
+            A decade of hope and transformation
+          </h2>
+          <p className="mt-4 text-lg text-silver/85">
+            An atmosphere of pure praise and worship that leaves you with an amazing encounter
+            for life. For ten years, Hope Experience has been the place where Jesus meets men.
+          </p>
+          <Link
+            href="/journey"
+            className="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-full border-2 border-lime px-6 py-3 text-base font-bold text-lime transition hover:bg-lime hover:text-forest sm:w-auto sm:px-8 sm:text-lg"
+          >
+            Our journey, 2016 to 2026
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden
+            >
+              <path d="M5 12h14M13 6l6 6-6 6" />
+            </svg>
+          </Link>
+        </div>
 
+        <AboutImages images={ABOUT_IMAGES.map((f) => mediaUrl(`about/${f}`))} />
+      </section>
       {/* Venue */}
       <section className="bg-pitch">
-        <div className="mx-auto grid max-w-6xl gap-6 px-4 py-16 md:grid-cols-2">
+        <div className="mx-auto grid max-w-6xl gap-6 px-4 py-14 sm:py-16 md:grid-cols-2">
           <div>
-            <h2 className="font-display text-4xl sm:text-5xl">Join us at the field</h2>
+            <h2 className="font-display text-4xl font-extrabold uppercase sm:text-6xl">
+              Join us at the field
+            </h2>
             <p className="mt-4 text-lg text-silver/85">
               {EVENT.venue}. {EVENT.address}.
             </p>
@@ -76,7 +64,7 @@ export default function Home() {
               href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
                 EVENT.venue + " Benin City"
               )}`}
-              className="rounded-full bg-silver px-8 py-3 font-bold text-forest hover:bg-lime"
+              className="w-full rounded-full bg-silver px-8 py-3 text-center text-base font-bold text-forest hover:bg-lime sm:w-auto sm:text-lg"
             >
               Get directions
             </a>
@@ -85,8 +73,8 @@ export default function Home() {
       </section>
 
       {/* Line up placeholder */}
-      <section className="mx-auto max-w-6xl px-4 py-16">
-        <h2 className="font-display text-4xl text-silver sm:text-5xl">The line up</h2>
+      <section className="mx-auto max-w-6xl px-4 py-14 sm:py-20">
+        <h2 className="font-display text-4xl font-extrabold uppercase sm:text-6xl">The line up</h2>
         <p className="mt-3 text-silver/80">
           Our ministers will be announced soon. Follow us on Instagram to see them first.
         </p>
@@ -94,13 +82,14 @@ export default function Home() {
           {Array.from({ length: 4 }).map((_, i) => (
             <div
               key={i}
-              className="flex aspect-[3/4] items-center justify-center rounded-2xl border border-lime/30 bg-pitch font-display text-3xl text-lime/60"
+              className="flex aspect-[3/4] items-center justify-center rounded-2xl border border-lime/30 bg-pitch font-display text-3xl font-extrabold text-lime/60"
             >
               TBA
             </div>
           ))}
         </div>
       </section>
+
       <Faq />
     </main>
   );

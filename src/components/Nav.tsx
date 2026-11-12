@@ -25,7 +25,7 @@ export default function Nav() {
                         width={900}
                         height={400}
                         priority
-                        className="h-12 w-auto mix-blend-screen"
+                        className="h-10 w-auto mix-blend-screen sm:h-12"
                     />
                 </Link>
 
@@ -44,7 +44,8 @@ export default function Nav() {
                         href="/partner"
                         className="rounded-full bg-lime px-4 py-2 text-sm font-bold text-forest hover:bg-gold sm:px-5"
                     >
-                        Partner with us
+                        <span className="sm:hidden">Partner</span>
+                        <span className="hidden sm:inline">Partner with us</span>
                     </Link>
                     <button
                         type="button"
