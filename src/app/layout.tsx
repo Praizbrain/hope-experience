@@ -1,11 +1,15 @@
 import type { Metadata } from "next";
-import { Anton, Figtree } from "next/font/google";
+import { Barlow_Condensed, Inter } from "next/font/google";
 import "./globals.css";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 
-const anton = Anton({ weight: "400", subsets: ["latin"], variable: "--font-anton" });
-const figtree = Figtree({ subsets: ["latin"], variable: "--font-figtree" });
+const barlow = Barlow_Condensed({
+  weight: ["700", "800"],
+  subsets: ["latin"],
+  variable: "--font-barlow",
+});
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 export const metadata: Metadata = {
   title: "Hope Experience 10 | The Invaxion",
@@ -15,7 +19,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${anton.variable} ${figtree.variable}`}>
+    <html lang="en" className={`${barlow.variable} ${inter.variable}`}>
       <body>
         <Nav />
         {children}

@@ -19,7 +19,15 @@ export const EVENT = {
 export const PRESET_AMOUNTS = [5000, 10000, 50000, 100000];
 export const MIN_AMOUNT = 1000;
 
-export const HERO_IMAGES = ["hero-1.jpg", "hero-2.jpg", "hero-3.jpg"];
+export const HERO_IMAGES = [
+    "hero-1.jpg",
+    "hero-2.jpg",
+    "hero-3.jpg",
+    "hero-4.jpg",
+    "hero-5.jpg",
+    "hero-6.jpg",
+    "hero-7.jpg",
+];
 
 export const mediaUrl = (path: string) =>
     `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/event-media/${path}`;

@@ -12,13 +12,12 @@ export default function Home() {
         <HeroSlideshow images={HERO_IMAGES.map((f) => mediaUrl(`hero/${f}`))} />
         <div className="relative z-10 mx-auto flex min-h-[85vh] max-w-6xl flex-col items-center justify-center gap-8 px-4 py-16 text-center">
           <h1 className="sr-only">Hope Experience 10, The Invaxion</h1>
-          <p className="max-w-xl text-xl text-silver">
+          <p className="hero-text max-w-xl text-xl text-silver">
             {EVENT.tagline}. A night of worship, prayer and transformation.
           </p>
-          <Countdown target={EVENT.dateISO} />
-          <p className="font-display text-2xl text-gold sm:text-3xl">
-            {EVENT.dateLabel}, {EVENT.timeLabel}
-          </p>
+          <div className="hero-text">
+            <Countdown target={EVENT.dateISO} />
+          </div>
           <div className="flex flex-wrap justify-center gap-3">
             <Link
               href="/partner"
@@ -76,9 +75,12 @@ export default function Home() {
         </p>
         <Link
           href="/journey"
-          className="mt-6 inline-block text-lime underline underline-offset-4"
+          className="mt-8 inline-flex items-center gap-2 rounded-full border-2 border-lime px-8 py-3 text-lg font-bold text-lime transition hover:bg-lime hover:text-forest"
         >
           See our journey from 2016 to 2026
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+            <path d="M5 12h14M13 6l6 6-6 6" />
+          </svg>
         </Link>
       </section>
 
