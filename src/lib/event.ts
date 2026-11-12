@@ -33,3 +33,10 @@ export const mediaUrl = (path: string) =>
     `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/event-media/${path}`;
 
 export const ABOUT_IMAGES = ["about-1.jpg", "about-2.jpg", "about-3.jpg"];
+
+export const FEATURED_VIDEO = {
+    id: "hBzuPwU4efw",
+    label: "Hope Experience 9 · 2025",
+    title: "Open Heaven",
+    poster: "video/open-heaven-2025.jpg",
+};

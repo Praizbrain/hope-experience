@@ -2,8 +2,9 @@ import Link from "next/link";
 import Hero from "@/components/Hero";
 import TaglineBanner from "@/components/TaglineBanner";
 import AboutImages from "@/components/AboutImages";
+import FeaturedVideo from "@/components/FeaturedVideo";
 import Faq from "@/components/Faq";
-import { EVENT, HERO_IMAGES, ABOUT_IMAGES, mediaUrl } from "@/lib/event";
+import { EVENT, HERO_IMAGES, ABOUT_IMAGES, FEATURED_VIDEO, mediaUrl } from "@/lib/event";
 
 export default function Home() {
   return (
@@ -88,6 +89,25 @@ export default function Home() {
               ?
             </div>
           ))}
+        </div>
+      </section>
+      {/* Featured video */}
+      <section className="pb-14 sm:pb-24">
+        <div className="mx-auto max-w-6xl px-4">
+          <p className="text-sm font-bold uppercase tracking-widest text-lime">
+            Relive Hope Experience 9
+          </p>
+          <h2 className="mt-2 font-display text-5xl font-extrabold uppercase leading-[0.95] sm:text-7xl">
+            Open Heaven. <span className="text-lime">The full experience.</span>
+          </h2>
+        </div>
+        <div className="mx-auto mt-8 max-w-6xl sm:px-4">
+          <FeaturedVideo
+            videoId={FEATURED_VIDEO.id}
+            label={FEATURED_VIDEO.label}
+            title={FEATURED_VIDEO.title}
+            poster={mediaUrl(FEATURED_VIDEO.poster)}
+          />
         </div>
       </section>
 

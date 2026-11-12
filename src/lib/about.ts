@@ -27,4 +27,6 @@ export type Video = { label: string; videoId?: string; playlistId?: string };
 // Each entry becomes a button under the player.
 // Use videoId for one video (the part after watch?v=) or playlistId for a playlist (the part after list=).
 // Example: { label: "Open Heaven 2025", playlistId: "PASTE_PLAYLIST_ID_HERE" },
-export const VIDEOS: Video[] = [];
+export const VIDEOS: Video[] = [
+    { label: "Open Heaven 2025", videoId: "hBzuPwU4efw" },
+];
