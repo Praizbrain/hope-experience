@@ -64,3 +64,55 @@ body {
   background-image: radial-gradient(rgba(77, 255, 0, 0.28) 1.6px, transparent 1.8px);
   background-size: 20px 20px;
 }
+
+.text-outline {
+  -webkit-text-stroke: 2px var(--color-silver);
+  color: transparent;
+}
+
+@keyframes marquee-left {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marquee-right {
+  from {
+    transform: translateX(-50%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes spin-slow {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.marquee-left {
+  animation: marquee-left 32s linear infinite;
+}
+
+.marquee-right {
+  animation: marquee-right 32s linear infinite;
+}
+
+.spin-slow {
+  animation: spin-slow 6s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .marquee-left,
+  .marquee-right,
+  .spin-slow {
+    animation: none;
+  }
+}
