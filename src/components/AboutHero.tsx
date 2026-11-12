@@ -49,7 +49,7 @@ export default function AboutHero({ images }: { images: string[] }) {
 
                 <div className="absolute inset-0 bg-gradient-to-t from-forest via-forest/20 to-forest/40" />
 
-                {/* Tilted tape */}
+                {/* Tilted moving tape */}
                 <div
                     className="absolute -left-6 -right-6 top-[16%] z-10 -rotate-3 overflow-hidden bg-lime py-2 text-forest shadow-xl"
                     aria-hidden
@@ -67,6 +67,18 @@ export default function AboutHero({ images }: { images: string[] }) {
                                 ))}
                             </div>
                         ))}
+                    </div>
+                </div>
+
+                {/* Big ABOUT heading and slide counter */}
+                <div className="absolute inset-x-0 bottom-0 z-10 mx-auto flex max-w-7xl items-end justify-between px-4 pb-6 sm:pb-10">
+                    <h1 className="font-display font-extrabold uppercase leading-[0.8]">
+                        <span className="block text-xl text-lime sm:text-3xl">Hope Experience 10</span>
+                        <span className="text-outline block text-[clamp(5.5rem,26vw,20rem)]">About</span>
+                    </h1>
+                    <div className="pb-2 text-right font-display text-xl font-extrabold sm:pb-4 sm:text-3xl">
+                        <span className="text-lime">{String(i + 1).padStart(2, "0")}</span>
+                        <span className="text-silver/60"> / {String(Math.max(n, 1)).padStart(2, "0")}</span>
                     </div>
                 </div>
             </div>
