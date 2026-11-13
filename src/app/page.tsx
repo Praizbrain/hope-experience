@@ -1,10 +1,11 @@
+import LineupCards from "@/components/LineupCards";
 import Link from "next/link";
 import Hero from "@/components/Hero";
 import TaglineBanner from "@/components/TaglineBanner";
 import AboutImages from "@/components/AboutImages";
 import FeaturedVideo from "@/components/FeaturedVideo";
 import Faq from "@/components/Faq";
-import { EVENT, HERO_IMAGES, ABOUT_IMAGES, FEATURED_VIDEO, mediaUrl } from "@/lib/event";
+import { EVENT, HERO_IMAGES, ABOUT_IMAGES, FEATURED_VIDEO, MINISTERS, mediaUrl } from "@/lib/event";
 
 export default function Home() {
   return (
@@ -80,16 +81,7 @@ export default function Home() {
         <p className="mt-3 text-silver/80">
           Our ministers will be announced soon. Follow us on Instagram to see them first.
         </p>
-        <div className="mt-8 grid grid-cols-2 gap-4 md:grid-cols-4">
-          {Array.from({ length: 4 }).map((_, i) => (
-            <div
-              key={i}
-              className="flex aspect-[3/4] items-center justify-center rounded-2xl border border-lime/30 bg-pitch font-display text-3xl font-extrabold text-lime/60"
-            >
-              ?
-            </div>
-          ))}
-        </div>
+        <LineupCards ministers={MINISTERS} />
       </section>
       {/* Featured video */}
       <section className="pb-14 sm:pb-24">

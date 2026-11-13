@@ -40,3 +40,7 @@ export const FEATURED_VIDEO = {
     title: "Open Heaven",
     poster: "video/open-heaven-2025.jpg",
 };
+
+// When a minister is confirmed, add them here and they replace one mystery card.
+// Example: { name: "Minister Name", photo: "ministers/minister-name.jpg" }
+export const MINISTERS: { name: string; photo: string }[] = [];
