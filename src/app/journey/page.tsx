@@ -36,19 +36,23 @@ export default function JourneyPage() {
                         alt=""
                         fill
                         sizes="100vw"
-                        className="object-cover opacity-50"
+                        className="object-cover"
                     />
                 </div>
-                <div className="absolute inset-0 -z-10 bg-gradient-to-t from-black via-black/60 to-black/80" aria-hidden />
+                <div className="absolute inset-0 -z-10 bg-moss/30 mix-blend-multiply" aria-hidden />
+                <div
+                    className="absolute inset-0 -z-10 bg-gradient-to-t from-black via-black/35 to-black/45"
+                    aria-hidden
+                />
 
                 <div className="mx-auto max-w-5xl px-4 py-24 text-center sm:py-40">
-                    <p className="text-sm font-bold uppercase tracking-widest text-lime">
+                    <p className="hero-text text-sm font-bold uppercase tracking-widest text-lime">
                         From an event to an identity
                     </p>
-                    <h2 className="mt-4 font-display text-[clamp(2.6rem,10vw,7.5rem)] font-extrabold uppercase leading-[0.9]">
+                    <h2 className="hero-text mt-4 font-display text-[clamp(2.6rem,10vw,7.5rem)] font-extrabold uppercase leading-[0.9]">
                         Come and see what happens when <span className="text-lime">Jesus meets men.</span>
                     </h2>
-                    <p className="mt-6 text-lg text-gold">
+                    <p className="hero-text mt-6 text-lg text-gold">
                         {EVENT.dateLabel}, {EVENT.timeLabel}. {EVENT.venue}, Benin City. Free entry.
                     </p>
                     <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:justify-center">
