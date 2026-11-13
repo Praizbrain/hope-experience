@@ -1,18 +1,13 @@
 "use client";
 import { useState } from "react";
+import FeaturedVideo from "@/components/FeaturedVideo";
+import { mediaUrl } from "@/lib/event";
 import type { Video } from "@/lib/about";
 
-function embedUrl(v: Video, autoplay: boolean) {
-    const url = new URL(
-        v.playlistId
-            ? "https://www.youtube-nocookie.com/embed/videoseries"
-            : `https://www.youtube-nocookie.com/embed/${v.videoId}`
-    );
-    if (v.playlistId) url.searchParams.set("list", v.playlistId);
-    url.searchParams.set("rel", "0");
-    url.searchParams.set("modestbranding", "1");
-    if (autoplay) url.searchParams.set("autoplay", "1");
-    return url.toString();
+function posterFor(v: Video) {
+    if (v.poster) return mediaUrl(v.poster);
+    if (v.videoId) return `https://i.ytimg.com/vi/${v.videoId}/maxresdefault.jpg`;
+    return undefined;
 }
 
 export default function VideoShowcase({ videos }: { videos: Video[] }) {
@@ -31,23 +26,18 @@ export default function VideoShowcase({ videos }: { videos: Video[] }) {
 
     return (
         <div>
-            <div className="aspect-video overflow-hidden rounded-2xl border border-white/10 bg-black">
-                <iframe
-                    key={active}
-                    src={embedUrl(v, clicked)}
-                    title={v.label}
-                    loading="lazy"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowFullScreen
-                    className="h-full w-full"
-                />
-            </div>
+            <FeaturedVideo
+                key={active}
+                videoId={v.videoId}
+                playlistId={v.playlistId}
+                label="Relive Hope Experience"
+                title={v.label}
+                poster={posterFor(v)}
+                autoPlay={clicked}
+                className="rounded-2xl border border-lime/30 shadow-[0_0_70px_-25px_rgba(77,255,0,0.5)]"
+            />
 
-            <p className="mt-4 font-display text-2xl font-extrabold uppercase text-lime sm:text-3xl">
-                {v.label}
-            </p>
-
-            <div className="mt-3 flex flex-wrap gap-2" role="group" aria-label="Choose a video">
+            <div className="mt-5 flex flex-wrap gap-2" role="group" aria-label="Choose a video">
                 {videos.map((x, n) => (
                     <button
                         key={x.label}
